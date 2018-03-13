@@ -86,19 +86,16 @@ def main():
                         dest="userPassword",
                         required=True,
                         help="UCP password")
-    parser.add_argument("-D",
-                        "--debug",
+    parser.add_argument("--debug",
                         dest="debug",
-                        help="Enable debug mode")
+                        action="store_true",
+                        help="Enable debug logging, if disabled tokenget will \
+                        operate silently.")
 
     args = parser.parse_args()
 
     # basic logging
-    if not args.debug:
-        logger = logging.getLogger(name=None)
-        logging.basicConfig(format='%(levelname)s: %(message)s',
-                            level=logging.INFO)
-    else:
+    if args.debug:
         logger = logging.getLogger(name=None)
         logging.basicConfig(format='%(levelname)s: %(message)s',
                             level=logging.DEBUG)
