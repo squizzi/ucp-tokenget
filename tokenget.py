@@ -5,14 +5,9 @@
 import argparse
 import sys
 import os
-import re
 import requests
 import logging
-import json
-import getpass
 import validators
-import atexit
-from jsondiff import diff
 from time import sleep
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
@@ -81,7 +76,7 @@ def main():
                         required=True,
                         help="UCP FQDN")
     parser.add_argument("-U",
-                        "--user"
+                        "--user",
                         dest="ucpUser",
                         required=True,
                         help="UCP username")
